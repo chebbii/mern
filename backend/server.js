@@ -15,7 +15,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routes/user';
 import messageRouter from './routes/message';
-import personRouter from './routes/personne';
+import personneRouter from './routes/personne';
 const app = express();
 dotenv.config();
 // secure the server by setting various HTTP headers
@@ -58,7 +58,7 @@ app.use(
   })
 );
 mongoose
-  .connect('mongodb://chebbi:test@localhost:27017/mern', {
+  .connect('mongodb://local:root@localhost:27017/chebbi', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
