@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import sampleFishes from '../../sample-fishes';
-import Fish from '../Fish/Fish';
-import './Home.scss';
+import sampleFishes from '../sample-fishes';
+import Fish from './Fish';
 
 const Home = () => {
   const [fishes, setFishes] = useState({});
@@ -13,7 +12,7 @@ const Home = () => {
   return (
     <div className='menu'>
       <h1>Fishes</h1>
-      <ul>
+      <ul className='fishes'>
         {Object.keys(fishes).map(key => (
           <Fish key={key} index={key} details={fishes[key]} />
         ))}

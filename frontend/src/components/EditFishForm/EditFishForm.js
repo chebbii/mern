@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import './EditFishForm.scss';
 
 const EditFishForm = props => {
   const [fish, setFish] = useState(

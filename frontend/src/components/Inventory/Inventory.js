@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import sampleFishes from '../../sample-fishes';
-import AddFishForm from '../AddFishForm/AddFishForm';
-import EditFishForm from '../EditFishForm/EditFishForm';
-import './Inventory.scss';
+import sampleFishes from '../sample-fishes';
+import AddFishForm from './AddFishForm';
+import EditFishForm from './EditFishForm';
 
 const Inventory = props => {
   const [fishes, setFishes] = useState({});
@@ -14,7 +13,7 @@ const Inventory = props => {
 
   return (
     <div className='inventory'>
-      <h1>Inventory</h1>
+      <h2>Inventory</h2>
       {Object.keys(fishes).map(key => (
         <EditFishForm
           fish={fishes[key]}

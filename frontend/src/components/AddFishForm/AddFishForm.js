@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import './AddFishForm.scss';
 
 const AddFishForm = props => {
   const [fish, setFish] = useState({
@@ -30,7 +29,7 @@ const AddFishForm = props => {
   }
 
   return (
-    <form className='fish-add' onSubmit={createFish}>
+    <form className='fish-edit' onSubmit={createFish}>
       <input name='name' value={fish.name} onChange={onChange('name')} type='text' placeholder='Name' />
       <input name='price' value={fish.price} onChange={onChange('price')} type='text' placeholder='Price' />
       <select name='status' value={fish.status} onChange={onChange('status')}>

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import './Fish.scss';
 
 const Fish = props => {
   const { image, name, price, desc, status } = props.details;
@@ -10,13 +9,6 @@ const Fish = props => {
     return (cents / 100).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' });
   };
 
-  const soldOut = !isAvailable ? (
-    <button className='order' disabled={!isAvailable}>
-      Sold Out
-    </button>
-  ) : (
-    ''
-  );
   return (
     <li className='menu-fish'>
       <img src={image} alt={image} />
@@ -25,7 +17,7 @@ const Fish = props => {
         <span className='price'>{formatPrice(price)}</span>
       </h3>
       <p>{desc}</p>
-      {soldOut}
+      <button disabled={!isAvailable}>{isAvailable ? 'Add To Order' : 'Sold Out'}</button>
     </li>
   );
 };
