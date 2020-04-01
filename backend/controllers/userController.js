@@ -3,8 +3,8 @@ import userSchema from '../models/userModel';
 
 const User = mongoose.model('User', userSchema);
 
-export const getAll = async (req, result) => {
+export const getAll = async (req, res) => {
     const users = await User.find().populate('messages');
 
-    result.send(users);
+    res.send(users);
 };

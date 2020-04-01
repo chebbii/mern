@@ -3,7 +3,7 @@ import playerSchema from '../models/playerModel';
 
 const Player = mongoose.model('Player', playerSchema);
 
-export const add = (req, result) => {
+export const add = (req, res) => {
     let newPlayer = new Player(req.body);
     newPlayer.save((err, createdPlayer) => {
         if (err) {
@@ -14,7 +14,7 @@ export const add = (req, result) => {
     });
 };
 
-export const getAll = (req, result) => {
+export const getAll = (req, res) => {
     Player.find({}, (err, players) => {
         if (err) {
             res.send('an error occured while trying to get players');
@@ -24,12 +24,12 @@ export const getAll = (req, result) => {
     });
 };
 
-export const getOneById = (req, result) => {
+export const getOneById = (req, res) => {
     Player.findById(req.params.id, (err, players) => {
         if (err) {
-            result.send('an error occured while trying to get players');
+            res.send('an error occured while trying to get players');
         }
 
-        result.send(players);
+        res.send(players);
     });
 };

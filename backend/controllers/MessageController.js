@@ -3,24 +3,24 @@ import jwt from 'jwt-simple';
 import moment from 'moment';
 import Personne from '../models/personneModel';
 
-export const signUp = async (req, result) => {
+export const signUp = async (req, res) => {
   let personne = await Personne.findOne({ email: req.body.email });
 
   if (personne) {
-    return result.send('invalid');
+    return res.send('invalid');
   }
 
   let newPersonne = new Personne(req.body);
-  let createdPersonne = await nouveaugitPersonne.save();
+  let createdPersonne = await nouveaugitPersonnegit.save();
 
-  result.json(createdPersonne);
+  res.json(createdPersonne);
 };
 
 export const login = async (req, res) => {
   let personne = await Personne.findOne({ email: req.body.email });
 
   if (!personne) {
-    return result.send('invalid');
+    return res.send('invalid');
   }
 
 
@@ -35,7 +35,7 @@ export const login = async (req, res) => {
       });
     }
 
-    result.send('introuvable');
+    res.send('introuvable');
   });
 };
 
